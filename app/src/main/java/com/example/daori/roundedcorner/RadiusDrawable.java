@@ -20,19 +20,22 @@ public class RadiusDrawable extends Drawable {
     private Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
 
-    public RadiusDrawable(Context context, float radius){
-        this.radius = radius;
-        this.context = context;
+    public RadiusDrawable(){
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.FILL);
     }
 
+    public float getRadius() {
+        return radius;
+    }
+
+    public void setRadius(float radius) {
+        this.radius = radius;
+    }
+
     @Override
     public void draw(Canvas canvas) {
-
-        Resources r = context.getResources();
-        float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, radius, r.getDisplayMetrics());
-        canvas.drawRoundRect(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), px, px, paint);
+        canvas.drawRoundRect(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), getRadius(), getRadius(), paint);
 
     }
 

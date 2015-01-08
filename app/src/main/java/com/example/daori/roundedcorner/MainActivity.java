@@ -66,7 +66,9 @@ public class MainActivity extends ActionBarActivity {
     }
 
     void setBoxRounded(ImageView view, String radius){
-        view.setImageDrawable(new RadiusDrawable(getApplicationContext(), Float.parseFloat(radius)));
+        RadiusDrawable radiusDrawable = new RadiusDrawable();
+        radiusDrawable.setRadius(Float.parseFloat(radius));
+        view.setImageDrawable(radiusDrawable);
     }
 
 
